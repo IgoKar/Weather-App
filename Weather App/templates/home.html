@@ -1,0 +1,106 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <link rel="stylesheet" href='{{ url_for('static', filename='css/style.css')}}'>
+    </head>
+    <body>
+        <h1>Weather App in Flask</h1>
+        
+        <main class="main-container">
+
+            <div class="location-and-date">
+            <h2 class="your-location">Your location</h2>
+            <h3 class="location-and-date__location">{{ user_weather.city }}, {{ user_weather.city_code }}</h3>
+            <h4>{{ user_weather.current_date }}</h4>
+            </div>
+
+
+            <div class="current-temperature">
+            <div class="current-temperature__icon-container">
+                <img src="/static/weatherIcons/{{ user_weather.current_icon }}.png" class="current-temperature__icon" alt="">
+            </div>
+            <div class="current-temperature__content-container">
+                <div class="current-temperature__value">{{ user_weather.current_temp }}&deg;<br>
+                    <p id="status">{{ user_weather.current_description}}</p>
+                </div>
+                <div class="current-temperature__summary"></div>
+            </div>
+            </div>
+
+
+            <div class="current-stats">
+            <div>
+                <div class="current-stats__value">{{ user_weather.current_max_temp }}&deg;</div>
+                <div class="current-stats__label">High</div>
+                <div class="current-stats__value">{{ user_weather.current_min_temp }}&deg;</div>
+                <div class="current-stats__label">Low</div>
+            </div>
+            <div>
+                <div class="current-stats__value">{{ user_weather.current_wind }} m/s</div>
+                <div class="current-stats__label">Wind</div>
+                <div class="current-stats__value">{{ user_weather.current_humidity }}%</div>
+                <div class="current-stats__label">Humidity</div>
+            </div>
+            <div>
+                <div class="current-stats__value">{{ user_weather.current_sunrise }}</div>
+                <div class="current-stats__label">Sunrise</div>
+                <div class="current-stats__value">{{ user_weather.current_sunset }}</div>
+                <div class="current-stats__label">Sunset</div>
+            </div>
+            </div>
+
+            <div class="weather-by-hour">
+            <h2 class="weather-by-hour__heading">Next 7 hours:</h2>
+            <div class="weather-by-hour__container">
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours1 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon1 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp1 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours2 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon2 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp2 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours3 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon3 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp3 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours4 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon4 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp4 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours5 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon5 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp5 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours6 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon6 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp6 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ user_weather.next_hours7 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ user_weather.next_hours_icon7 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ user_weather.next_hours_temp7 }}&deg;</p></div>
+                </div>
+            </div>
+            </div>
+        </main>
+
+        <form action="{{ url_for('searchResult') }}" method="POST">
+            <input type="text" name="City" class="question" id="nme" required autocomplete="off"/>
+            <label for="nme"><span>What's the weather like in...</span></label>
+            <input type="submit" value="Search ❯" />
+        </form>
+        <footer>
+            <p>Created with<a href="https://openweathermap.org/"> OpenWeatherMap API</a>    © 2021 Igor Karlik</p>
+        </footer>
+    </body>
+</html>

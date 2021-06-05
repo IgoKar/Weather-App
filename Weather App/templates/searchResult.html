@@ -1,0 +1,279 @@
+<html>
+    <head>
+        <title>Weather App</title>
+    </head>
+    <body>
+        <!DOCTYPE html>  
+<html lang="en">  
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <link rel="stylesheet" href='{{ url_for('static', filename='css/searchResultStyle.css')}}'>
+    </head>
+    <body>
+        <h1><a href="http://127.0.0.1:5000/">Weather App in Flask</a></h1>
+        
+        <main class="main-container">
+
+            <div class="location-and-date">
+            <h2 class="location-and-date__location">{{ weather.city }}, {{ weather.city_code }}</h3>
+            <h3>{{ weather.current_date }}</h4>
+            </div>
+
+
+            <div class="current-temperature">
+            <div class="current-temperature__icon-container">
+                <img src="/static/weatherIcons/{{ weather.current_icon }}.png" class="current-temperature__icon" alt="">
+            </div>
+            <div class="current-temperature__content-container">
+                <div class="current-temperature__value">{{ weather.current_temp }}&deg;<br>
+                    <p id="status">{{ weather.current_description}}</p>
+                </div>
+                <div class="current-temperature__summary"></div>
+            </div>
+            </div>
+
+
+            <div class="current-stats">
+            <div>
+                <div class="current-stats__value">{{ weather.current_max_temp }}&deg;</div>
+                <div class="current-stats__label">High</div>
+                <div class="current-stats__value">{{ weather.current_min_temp }}&deg;</div>
+                <div class="current-stats__label">Low</div>
+            </div>
+            <div>
+                <div class="current-stats__value">{{ weather.current_wind }} m/s</div>
+                <div class="current-stats__label">Wind</div>
+                <div class="current-stats__value">{{ weather.current_humidity }}%</div>
+                <div class="current-stats__label">Humidity</div>
+            </div>
+            <div>
+                <div class="current-stats__value">{{ weather.current_sunrise }}</div>
+                <div class="current-stats__label">Sunrise</div>
+                <div class="current-stats__value">{{ weather.current_sunset }}</div>
+                <div class="current-stats__label">Sunset</div>
+            </div>
+            <div>
+                <div class="current-stats__value">{{ weather.current_cloudy }}%</div>
+                <div class="current-stats__label">Cloudiness</div>
+                <div class="current-stats__value">{{ weather.current_pressure }} hPa</div>
+                <div class="current-stats__label">Pressure</div>
+            </div>
+            </div>
+
+            <div class="weather-by-hour">
+            <h2 class="weather-by-hour__heading">Next 7 hours:</h2>
+            <div class="weather-by-hour__container">
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours1 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon1 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp1 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours2 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon2 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp2 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours3 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon3 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp3 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours4 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon4 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp4 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours5 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon5 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp5 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours6 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon6 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp6 }}&deg;</p></div>
+                </div>
+                <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">{{ weather.next_hours7 }}</div>
+                <img class="weather-by-hour__icon" src="/static/weatherIcons/{{ weather.next_hours_icon7 }}.png" alt="">
+                <div><p class="weather-by-hour__temp">{{ weather.next_hours_temp7 }}&deg;</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-5-days">
+            <h2 class="next-5-days__heading">Next 5 days</h2>
+            <div class="next-5-days__container">
+        
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                    {{ weather.next_weekday1 }}
+                <div class="next-5-days__label">{{ weather.next_day_month1 }}</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                    {{ weather.next_weekday_min_temp1 }}&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                    {{ weather.next_weekday_max_temp1 }}&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img class="day-icon" src="/static/weatherIcons/{{ weather.next_weekday1_icon1 }}.png" alt="">
+                </div>
+        
+                <div class="next-5-days__Humidity">
+                    {{ weather.next_weekday_humidity1 }}%
+                  <div class="next-5-days__label">Humidity</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                    {{ weather.next_weekday_wind1 }} m/s
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                    {{ weather.next_weekday2 }}
+                <div class="next-5-days__label">{{ weather.next_day_month2 }}</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                    {{ weather.next_weekday_min_temp2 }}&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                    {{ weather.next_weekday_max_temp2 }}&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img class="day-icon" src="/static/weatherIcons/{{ weather.next_weekday1_icon2 }}.png" alt="">
+                </div>
+        
+                <div class="next-5-days__Humidity">
+                    {{ weather.next_weekday_humidity2 }}%
+                  <div class="next-5-days__label">Humidity</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                    {{ weather.next_weekday_wind2 }}m/s
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                    {{ weather.next_weekday3 }}
+                  <div class="next-5-days__label">{{ weather.next_day_month3 }}</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                    {{ weather.next_weekday_min_temp3 }}&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                    {{ weather.next_weekday_max_temp3 }}&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img class="day-icon" src="/static/weatherIcons/{{ weather.next_weekday1_icon3 }}.png" alt="">
+                </div>
+        
+                <div class="next-5-days__Humidity">
+                    {{ weather.next_weekday_humidity3 }}%
+                  <div class="next-5-days__label">Humidity</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                    {{ weather.next_weekday_wind3 }}m/s
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                    {{ weather.next_weekday4 }}
+                  <div class="next-5-days__label">{{ weather.next_day_month4 }}</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                    {{ weather.next_weekday_min_temp4 }}&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                    {{ weather.next_weekday_max_temp4 }}&deg;
+                    
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img class="day-icon" src="/static/weatherIcons/{{ weather.next_weekday1_icon4 }}.png" alt="">
+                </div>
+        
+                <div class="next-5-days__Humidity">
+                    {{ weather.next_weekday_humidity4 }}%
+                  <div class="next-5-days__label">Humidity</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                    {{ weather.next_weekday_wind4 }}m/s
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                    {{ weather.next_weekday5 }}
+                  <div class="next-5-days__label">{{ weather.next_day_month5 }}</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                    {{ weather.next_weekday_min_temp5 }}&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                    {{ weather.next_weekday_max_temp5 }}&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img class="day-icon" src="/static/weatherIcons/{{ weather.next_weekday1_icon5 }}.png" alt="">
+                </div>
+        
+                <div class="next-5-days__Humidity">
+                    {{ weather.next_weekday_humidity5 }}%
+                  <div class="next-5-days__label">Humidity</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                    {{ weather.next_weekday_wind5 }}m/s
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+        
+            </div>
+          </div>
+        </main>
+        <footer>
+            <p>Created with<a href="https://openweathermap.org/"> OpenWeatherMap API</a>    © 2021 Igor Karlik</p>
+        </footer>
+    </body>
+</html>

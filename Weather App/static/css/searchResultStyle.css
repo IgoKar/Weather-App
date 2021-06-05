@@ -1,0 +1,332 @@
+@import url(https://fonts.googleapis.com/css2?family=Varela+Round);
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    font-family: 'Varela Round', sans-serif;
+  }
+  
+  body {
+    background-image:url("/static/backgroundSec.svg");
+    background-size: fill;
+    color:rgba(255, 255, 255);
+    text-shadow: 2px 2px black;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1280px;
+  }
+  
+h1 a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 3px black;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom:60px;
+}
+
+h1 a:hover{
+    color: rgb(238, 238, 238);
+    text-decoration: none;
+    text-shadow: 2px 3px rgb(0, 0, 0);
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom:80px;
+}
+
+h1 a:visited{
+    text-decoration: none;
+    text-shadow: 2px 3px black;
+    font-size: 29px;
+    font-weight: 900;
+    margin-bottom:60px;
+}
+
+.main-container {
+    margin-top: 30px;
+	padding: 14px 20px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+	border-radius:8px;
+	display: flex;
+    float:center;
+    width:1280px;
+	flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1300px) {
+  .main-container {
+    width: 1280px;
+    margin-top: 30px;
+    font-size: 1.1em;
+  }
+}
+
+
+/* location-and-date */
+.location-and-date {
+	width: 100%;
+}
+
+.your-location {
+  color:black;
+  text-shadow: none;
+	float:right;
+	font-size: 0.8em;
+	font-weight: 700;
+}
+
+.location-and-date__location {
+	margin-top:20px;
+	font-size: 2em;
+	font-weight: 900;
+}
+
+
+
+/* current-temperature */
+.current-temperature {
+    display: flex;
+    margin-top: 0.25em;
+    width: 100%;
+}
+
+
+.current-temperature__icon-container {
+	flex-grow: 1.25;
+	text-align: center;
+}
+
+.current-temperature__content-container {
+	flex-grow: 1;
+	text-align: center;
+	margin-top: 12px;
+}
+
+.current-temperature__icon {
+	width: 10.5em;
+}
+
+.current-temperature__value {
+	font-size: 5.25em;
+  text-shadow: 3px 2px black;
+}
+
+p#status {
+  font-weight: 700;
+  margin-top: 0;
+  font-size: 26px;
+}
+
+.current-temperature__summary {
+	margin-top: -0.5em;
+	margin-left: -0.6em;
+	text-align: center;
+	font-size: 1.125em;
+}
+
+
+
+/* current-stats */
+.current-stats {
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 1em;
+	width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .current-stats {
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: 6px solid rgba(122, 135, 255, 0.685);
+  }
+}
+
+.current-stats__value {
+	margin-top: 1em;
+	font-size: 1.44em;
+	font-weight: 700;
+}
+
+.current-stats__label {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px black;
+}
+
+@media screen and (min-width: 700px) {
+  .current-temperature,
+  .current-stats {
+    width: 50%;
+  }
+}
+
+
+/* weather-by-hour */
+.weather-by-hour {
+	display: none;
+	width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .weather-by-hour {
+    display: block;
+  }
+}
+
+.weather-by-hour__container {
+	border-radius:5px;
+	display: flex;
+	justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.151);
+}
+
+.weather-by-hour__heading,
+.next-5-days__heading {
+  text-shadow: 2px 2px black;
+	font-size: 2em;
+	font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .weather-by-hour__heading,
+  .next-5-days__heading {
+    font-size: 1.125em;
+  }
+}
+
+.weather-by-hour__item {
+	padding-top: 0.8em;
+	width: 14%;
+	border-radius: 0px;
+	font-size: 1.125em;
+	text-align: center;
+}
+
+.weather-by-hour__icon {
+  margin-top: 20px;
+  margin-bottom: -250px;
+  height: 36%;
+  width: 68%;
+}
+
+@media screen and (min-width: 880px) {
+  .weather-by-hour__item {
+    width: 6.05em;
+  }
+}
+
+.weather-by-hour__hour {
+	font-weight: 700;
+	margin-bottom: 0.5em;
+}
+
+p.weather-by-hour__temp {
+margin-top: 140px;
+  font-size: 1.6em;
+  font-weight: 700;
+  text-shadow: 2px 2px black;
+}
+
+
+/* next-5-days */
+.next-5-days {
+	width: 100%;
+	margin-top: 1em;
+}
+
+.next-5-days__container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.next-5-days__row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 0.3em;
+	padding: 0.8em 0;
+    height: 100px;
+	width: 100%;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.20);
+	font-size: 1.19em;
+	text-align: center;
+}
+
+.next-5-days__label {
+    font-weight: 500;
+    text-shadow: 1px 1px black;
+	color: rgb(202, 202, 202);
+	font-size: 0.83em;
+}
+
+.next-5-days__date,
+.next-5-days__high,
+.next-5-days__low,
+.next-5-days__icon,
+.next-5-days__rain,
+.next-5-days__wind {
+    font-weight: 700;
+	width: 33.33333%;
+	font-size: 0.95em;
+}
+
+.next-5-days__date,
+.next-5-days__high,
+.next-5-days__low {
+	margin-bottom: 0.6em;
+}
+
+img.day-icon {
+    width:50px;
+    height:50px;
+}
+
+@media screen and (min-width: 450px) {
+  .next-5-days__date,
+  .next-5-days__high,
+  .next-5-days__low,
+  .next-5-days__icon,
+  .next-5-days__rain,
+  .next-5-days__wind {
+    width: 16.666666%;
+    margin-bottom: initial;
+  }
+
+  .next-5-days__date {
+    order: -2;
+  }
+
+  .next-5-days__icon {
+    order: -1;
+  }
+}
+
+footer{
+  display:block;
+  box-sizing: border-box;
+  font-weight: 300;
+  font-size: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  text-align: center;
+}
+
+p a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
